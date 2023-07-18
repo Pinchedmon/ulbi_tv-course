@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal/Modal';
 import React, { useCallback, useState } from 'react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -20,7 +20,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
             <Button
-                theme={ThemeButton.CLEAR_INVERTED}
+                theme={ButtonTheme.CLEAR_INVERTED}
                 className={cls.links}
                 onClick={onToggleModal}
             >
