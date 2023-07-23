@@ -35,6 +35,7 @@ export const Modal = (props: ModalProps) => {
             setIsMounted(true);
         }
     }, [isOpen]);
+
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
@@ -75,9 +76,10 @@ export const Modal = (props: ModalProps) => {
     if (lazy && !isMounted) {
         return null;
     }
+
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className, theme])}>
+            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div
                         className={cls.content}
