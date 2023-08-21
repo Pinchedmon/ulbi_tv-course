@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { Profile, validateProfileError } from '../../types/profile';
-import { getProfileForm } from '../../selectors/getProfileForm';
+import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 export const updateProfileData = createAsyncThunk<
@@ -20,6 +20,9 @@ export const updateProfileData = createAsyncThunk<
         }
         try {
             const response = await extra.api.put<Profile>('/profile', formData);
+            if (!response.data) {
+                throw new Error();
+            }
             return response.data;
         } catch (e) {
             console.log(e);

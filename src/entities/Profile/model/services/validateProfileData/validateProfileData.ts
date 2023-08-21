@@ -9,13 +9,13 @@ export const validateProfileData = (profile?: Profile) => {
     } = profile;
     const errors: validateProfileError[] = [];
     if (!first || !lastname) {
-        return errors.push(validateProfileError.INCORRECT_USER_DATA);
+        errors.push(validateProfileError.INCORRECT_USER_DATA);
     }
     if (!age || !Number.isInteger(age)) {
-        return errors.push(validateProfileError.INCORRECT_AGE);
+        errors.push(validateProfileError.INCORRECT_AGE);
     }
     if (!country) {
-        return errors.push(validateProfileError.INCORRECT_COUNTRY);
+        errors.push(validateProfileError.INCORRECT_COUNTRY);
     }
     return errors;
 };
