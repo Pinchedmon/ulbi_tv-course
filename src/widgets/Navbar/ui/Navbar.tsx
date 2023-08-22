@@ -50,6 +50,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 onClick={onShowModal}
             >
                 {t('Войти')}
+
             </Button>
             {isAuthModal && (
                 <LoginModal
