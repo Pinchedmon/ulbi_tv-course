@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
-import cls from './{{pascalCase}}'
+import React from 'react';
+import cls from './{{pascalCase}}.module.scss'
 interface {{pascalCase}}Props {
 	className?: string
 }
-const {{pascalCase}}: FC<{{pascalCase}}Props> = ({}) => {
+const {{pascalCase}} = (props:{{pascalCase}}Props) => {
+	const {className} = props
 	return (<div className={classNames(cls.{{pascalCase}}, {}, [className])}>
 
 	</div>);
