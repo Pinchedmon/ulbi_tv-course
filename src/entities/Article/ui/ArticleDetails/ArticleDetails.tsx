@@ -17,6 +17,7 @@ import { ArticleImageBlockComponent } from
     'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from
     'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
@@ -75,11 +76,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    });
 
     let content;
 
