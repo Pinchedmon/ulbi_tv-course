@@ -1,4 +1,5 @@
-import ArticleList from './ui/ArticleList/ArticleList';
+import { ArticleList } from './ui/ArticleList/ArticleList';
+import ArticleViewSelector from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
     ArticleDetails,
@@ -8,3 +9,5 @@ export { Article, ArticleView } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
 export { ArticleList };
+
+export { ArticleViewSelector };
