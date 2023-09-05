@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { $api } from 'shared/api/api';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
+import { scrollReducer } from 'features/Scroll';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -20,6 +21,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scroll: scrollReducer,
 
     };
     const reducerManager = createReducerManager(rootReducers);
