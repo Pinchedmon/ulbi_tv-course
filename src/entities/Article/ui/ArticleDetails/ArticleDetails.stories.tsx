@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -8,7 +7,7 @@ import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/arti
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -27,8 +26,7 @@ const article: Article = {
     type: [ArticleType.IT],
     user: {
         id: '1',
-        username: 'admin',
-        avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+        username: 'Ulbi tv',
     },
     blocks: [
         {

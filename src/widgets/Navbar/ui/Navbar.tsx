@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
-import { getUserAuthData, userActions } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from 'entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -13,9 +13,10 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
+    const dispatch = useDispatch();
+
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
@@ -27,21 +28,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);
+
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     className={cls.links}
-                    onClick={() => {
-                        onLogout();
-                    }}
+                    onClick={onLogout}
                 >
                     {t('Выйти')}
                 </Button>
             </header>
         );
     }
+
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
             <Button
@@ -50,7 +51,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 onClick={onShowModal}
             >
                 {t('Войти')}
-
             </Button>
             {isAuthModal && (
                 <LoginModal
@@ -58,7 +58,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     onClose={onCloseModal}
                 />
             )}
-
         </header>
     );
 });

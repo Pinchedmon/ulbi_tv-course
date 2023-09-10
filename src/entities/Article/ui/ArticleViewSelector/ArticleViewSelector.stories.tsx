@@ -1,17 +1,17 @@
-// import React from 'react';
-// import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-// export default {
-//     title: 'ArticleViewSelector',
-//     component: ArticleViewSelector,
-//     argTypes: {
-//         backgroundColor: { control: 'color' },
-//     },
-// } as ComponentMeta<typeofArticleViewSelector>;
+import { ArticleViewSelector } from './ArticleViewSelector';
 
-// const Template: ComponentStory<typeofArticleViewSelector> = (args: any) => <ArticleViewSelector {...args} />;
+export default {
+    title: 'entities/Article/ArticleViewSelector',
+    component: ArticleViewSelector,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleViewSelector>;
 
-// export const Primary = Template.bind({});
-// Primary.args = {
+const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args} />;
 
-// };
+export const Normal = Template.bind({});
+Normal.args = {};
